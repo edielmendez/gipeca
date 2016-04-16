@@ -1,0 +1,35 @@
+.message{
+border-radius: 10px 10px 10px 10px;
+-moz-border-radius: 10px 10px 10px 10px;
+-webkit-border-radius: 10px 10px 10px 10px;
+border: 1px solid #BBDEFB;
+padding: 5px;
+}
+
+.displayName{
+	
+	width: 40%;
+	display: inline;
+	margin: 5px;
+	font-weight: bolder;
+}
+
+.username{
+	
+	width: 30%;
+	display: inline;
+	margin: 5px;
+	color: gray;
+	font-size: 10pt;
+}
+.fecha{
+	
+	width: 30%;
+	display: inline;
+	color: gray;
+	font-size: 10pt;
+}
+.texto{
+
+	color: #2196F3;
+}

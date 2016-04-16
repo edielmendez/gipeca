@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>App</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="css/materialize.min.css">
+	<link rel="stylesheet" href="css/palette.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script type="text/javascript" src="js/jquery-2.2.2.min.js"></script>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script src="js/underscore.min.js"></script>
+    <script src="js/backbone.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/backbonefire/0.5.1/backbonefire.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+</head>
+<body bgcolor="4099FF" id="prueba">
+	<div id="content">
+		
+	</div>
+	
+	<script type="text/template" id="login-view">
+	<br>
+	<br>
+	<div class="container" id="login">
+		<div id="login-page" class="row">
+		    <div class="col m6 offset-m3 s12 z-depth-4 card-panel">
+		        <div class="row">
+		          <div class="input-field col m8 offset-m2  s12">
+		            <h3 class="center login-form-text">Socialité</h3>
+		          </div>
+		        </div>
+		        <div class="row">
+		          <div class="input-field col m8  offset-m2 s12">
+		            <button class="btn waves-effect waves-light col s12" id="btnLoginTwitter">Login con Twitter   <i class="material-icons large">verified_user</i></button>
+		          </div>
+		        </div>
+		    </div>
+  		</div>
+	</div>
+	</script>
+
+	
+	
+	<!--Vista principal de la app-->
+
+	<script type="text/template" id="principal-view">
+	<!--<ul id="dropdown1" class="dropdown-content">
+	  <li><a href="#aa" id="btnCerrarSesion">Cerrar Sesión</a></li>
+	 
+	</ul>-->
+		<nav>
+		    <div class="nav-wrapper default-primary-color ">
+		      <a href="#!" class="brand-logo">Socialité</a>
+		       <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+		      <ul class="right hide-on-med-and-down">
+		        <li><a><%= username %><i class="material-icons right">person_pin</i></a></li>
+		       <!-- <li><a  class="dropdown-button" data-activates="dropdown1" ><i class="material-icons right">power_settings_new</i></a></li>-->
+		       <li><a id="btnCerrarSesion"><i class="material-icons right">power_settings_new</i></a></li>
+		       
+		      </ul>
+		      <!--barra responsiva movil-->
+		      <ul class="side-nav" id="mobile-demo">
+		      	<li><a class="cyan-text"><%= username %><i class="material-icons right">person_pin</i></a></li>
+		        <li><a class="cyan-text">Cerrar Sesión<i class="material-icons right">power_settings_new</i></a></li>
+		        <li><a class="cyan-text a" ><i class="material-icons right">message</i>Mensajes</a></li>
+		        <li><a  class="cyan-text"><i class="material-icons right">group</i>Equipo</a></li>
+      		  </ul>
+      		  <!---->
+		    </div>
+ 	 	</nav>
+
+ 	 	
+
+        <div class="container">
+        	<nav class="white hide-on-med-and-down">
+		    <div class="nav-wrapper">
+		      
+		      <ul class="hide-on-med-and-down">
+		        <li><a class="cyan-text z-depth-3 #e3f2fd blue lighten-5" id="btnMensajes"><i class="material-icons right">message</i>Mensajes</a></li>
+		        <li><a  class="cyan-text" id="btnEquipo"><i class="material-icons right">group</i>Equipo</a></li>
+		      </ul>
+		      
+		    </div>
+		  </nav>
+		  <!--
+			<div class="row">
+				<div class="col m8 s12">
+					<div class="card-panel" style="height:400px;overflow-y:scroll;" id="areaMensajes">
+					<div class="message">
+						<p class="displayName">Ediel Mendez Vasquez</p>
+						<p class="username">@ediel_mendez</p>
+						<p class="fecha">24 nov. 2015</p>
+						<p class="texto">Hola twitten esto</p>
+					</div>
+        			
+            		</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col m12 s12">
+					<div class="input-field col m7 s9">
+		          		<input placeholder="Nuevo Mensaje" id="txtMensaje" type="text" class="validate">
+		          		<label for="first_name">Mensaje</label>
+        			</div>
+        			 <a class="btn-floating btn-large waves-effect waves-light #00796B"><i class="material-icons">send</i></a>
+		        	<!--<button class="btn waves-effect waves-light" type="submit" name="action" id="btnEnviarMensaje">Enviar<i class="material-icons right">group</i>
+		  			</button>
+				</div>
+			</div>-->
+		    
+		 
+        </div>
+    </script>
+    <div id="content-general" class="container">
+    	
+    </div>
+    
+
+    <!--Template del Timeline-->
+    <script type="text/template" id="timeline-view">
+    	<div class="row">
+				<div class="col m8 s12">
+					<div class="card-panel z-depth-3" style="height:400px;overflow-y:scroll;" id="areaMensajes">
+					<div class="message">
+						<p class="displayName">Ediel Mendez Vasquez</p>
+						<p class="username">@ediel_mendez</p>
+						<p class="fecha">24 nov. 2015</p>
+						<p class="texto">Hola twitten esto</p>
+					</div>
+        			
+            		</div>
+				</div>
+		</div>
+		<div class="row">
+			<div class="col m12 s12">
+				<div class="input-field col m7 s9">
+		          	<input placeholder="Nuevo Mensaje" id="txtMensaje" type="text" class="validate">
+		          	<label for="first_name">Mensaje</label>
+        		</div>
+        			<a class="btn-floating btn-large waves-effect waves-light #00796B"><i class="material-icons">send</i></a>
+		        	<!--<button class="btn waves-effect waves-light" type="submit" name="action" id="btnEnviarMensaje">Enviar<i class="material-icons right">group</i>
+		  			</button>-->
+			</div>
+		</div>
+    </script>
+
+    <script type="text/template" id="equipo-view">
+    	<div class="row">
+			<div class="col m8 s12">
+				<div class="card-panel z-depth-3" style="height:400px;overflow-y:scroll;" id="areaMensajes">
+				<div class="message">
+					<p class="displayName">ediel</p>
+					<p class="texto"> texto texto</p>
+				</div>
+        			
+            	</div>
+			</div>
+		</div>
+    </script>
+
+     
+
+
+
+
+	
+
+	
+</body>
+</html>
